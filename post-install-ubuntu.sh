@@ -60,6 +60,7 @@ sudo snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
+sudo flatpak install https://flathub.org/repo/appstream/com.github.maoschanz.drawing.flatpakref -y ##drawing##
 
 ##Limpeza a atualização##
 sudo rm -r $DIRETORIO_DOWNLOADS
