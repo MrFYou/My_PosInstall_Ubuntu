@@ -22,6 +22,7 @@ sudo apt remove firefox -y
 wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
 sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
 sudo add-apt-repository ppa:embrosyn/cinnamon -y ##Cinnamon##
+sudo add-apt-repository ppa:embrosyn/xapps ##xed##
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -31,7 +32,7 @@ wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
-sudo apt install flatpak vlc git vim winff transmission cinnamon msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
+sudo apt install flatpak vlc git vim winff transmission cinnamon xed msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
