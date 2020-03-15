@@ -52,15 +52,16 @@ echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
 sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip curl -y
 
 ## Instalando pacotes Snap ##
-snap install spotify
-snap install photogimp
-snap install telegram-desktop
-snap install code --classic ##Visual-Studio-Code##
+sudo snap install spotify
+sudo snap install photogimp
+sudo snap install telegram-desktop
+sudo snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
 
 ##Limpeza a atualização##
 sudo rm -r $DIRETORIO_DOWNLOADS
+sudo apt update
 sudo apt autoremove -y
 sudo apt upgrade -y
