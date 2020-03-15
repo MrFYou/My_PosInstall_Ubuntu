@@ -4,6 +4,7 @@ URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_curre
 URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
 URL_VIRTUAL_BOX="https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~bionic_amd64.deb"
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
+URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 ## --------------------------------------------------------------------------------------------------------------------##
 
@@ -31,6 +32,12 @@ wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
 sudo apt install flatpak vlc git vim winff cinnamon msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
+
+##Instalando Temas e icones do Linux Mint##
+sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
+sudo unzip $DIRETORIO_DOWNLOADS/master.zip -d $DIRETORIO_DOWNLOADS
+sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/icons /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 
 ## Instalando pacotes .deb baixados##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
