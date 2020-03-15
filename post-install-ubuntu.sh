@@ -13,15 +13,15 @@ sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
 ## Adicionando arquitetura de 32 bits ##
-sudo dpkg --add-architecture i386
+sudo dpkg --add-architecture i386 ##Minecraft-bedrock##
 
 ##Removendo pacotes pre-instalados##
 sudo apt remove firefox -y
 
 ##Adicionando repositorios e PPAs##
-wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add -
-sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main'
-sudo add-apt-repository ppa:embrosyn/cinnamon -y
+wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
+sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
+sudo add-apt-repository ppa:embrosyn/cinnamon -y ##Cinnamon##
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -31,7 +31,7 @@ wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
-sudo apt install flatpak vlc git vim winff cinnamon msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
+sudo apt install flatpak vlc git vim winff transmission cinnamon msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
@@ -42,17 +42,23 @@ sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 ## Instalando pacotes .deb baixados##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 
-##Consertando depedencias faltando/quebradas##
-sudo apt --fix-broken install
+##Consertando dependencias faltando/quebradas##
+sudo apt --fix-broken install -y
+
+##Instalando asdf-vm##
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.7
+echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
+echo -e '\n. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc
+sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev libyaml-dev libxslt-dev libffi-dev libtool unixodbc-dev unzip curl -y
 
 ## Instalando pacotes Snap ##
-sudo snap install spotify
-sudo snap install photogimp
-sudo snap install telegram-desktop
-sudo snap install code --classic
+snap install spotify
+snap install photogimp
+snap install telegram-desktop
+snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
-sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
+sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
 
 ##Limpeza a atualização##
 sudo rm -r $DIRETORIO_DOWNLOADS
