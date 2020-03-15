@@ -32,7 +32,7 @@ wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
-sudo apt install flatpak vlc git vim winff transmission cinnamon xed msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
+sudo apt install flatpak vlc git vim winff transmission cinnamon xed msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 lightdm-settings slick-greeter-y
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
