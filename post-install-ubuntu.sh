@@ -7,12 +7,6 @@ URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 ## --------------------------------------------------------------------------------------------------------------------##
 
-##------------------------------------------------ COMANDOS COMENTADOS -------------------------------------------------##
-## Removendo travas eventuais do apt ##
-##sudo rm /var/lib/dpkg/lock-frontend##
-##sudo rm /var/cache/apt/archives/lock##
-#-------------------------------------------------------------------------------------------------------------------------#
-
 ## Removendo travas eventuais do apt ##
 sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
@@ -38,20 +32,22 @@ wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 ##Instalando pacotes apt##
 sudo apt install flatpak vlc git vim winff cinnamon msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y
 
+## Instalando pacotes .deb baixados##
+sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
+
+##Consertando depedencias faltando/quebradas##
+sudo apt --fix-broken install
+
 ## Instalando pacotes Snap ##
 sudo snap install spotify
 sudo snap install photogimp
 sudo snap install telegram-desktop
-sudo snap install code
+sudo snap install code --classic
 
 ## Instalando pacotes Flatpak ##
-flatpak install flathub org.gimp.GIMP/x86_64/stable -y
+sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y
 
-## Instalando pacotes .deb baixados##
-sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-
-## Finalização e limpeza##
+##Limpeza a atualização##
 sudo rm -r $DIRETORIO_DOWNLOADS
-sudo apt upgrade -y
-sudo apt autoclean -y
 sudo apt autoremove -y
+sudo apt upgrade -y
