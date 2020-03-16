@@ -43,6 +43,7 @@ sudo apt install xed -y
 sudo apt install redshift redshift-gtk -y
 sudo apt install lightdm-settings slick-greeter -y
 sudo apt install msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y ##Minecraft-bedrock##
+sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte a arquivos .7z e .rar##
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
