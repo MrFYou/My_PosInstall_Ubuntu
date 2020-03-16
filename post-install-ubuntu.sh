@@ -33,7 +33,16 @@ wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
-sudo apt install flatpak vlc git vim winff transmission cinnamon xed msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 redshift redshift-gtk lightdm-settings slick-greeter-y
+sudo apt install flatpak -y
+sudo apt install git -y
+sudo apt install vim -y
+sudo apt install winff -y
+sudo apt install transmission -y
+sudo apt install cinnamon -y
+sudo apt install xed -y
+sudo apt install redshift redshift-gtk -y
+sudo apt install lightdm-settings slick-greeter -y
+sudo apt install msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y ##Minecraft-bedrock##
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
@@ -65,6 +74,7 @@ sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev lib
 ## Instalando pacotes Snap ##
 sudo snap install spotify
 sudo snap install photogimp
+sudo snap install vlc
 sudo snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
