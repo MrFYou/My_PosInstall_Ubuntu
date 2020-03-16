@@ -4,6 +4,7 @@ URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_curre
 URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
 URL_VIRTUAL_BOX="https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~bionic_amd64.deb"
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
+URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 ## --------------------------------------------------------------------------------------------------------------------##
@@ -46,6 +47,15 @@ sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
 ##Consertando dependencias faltando/quebradas##
 sudo apt --fix-broken install -y
 
+##Instalando Telegram##
+cd "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_TELEGRAM" -O telegram.tar.xz
+sudo tar Jxf $DIRETORIO_DOWNLOADS/telegram.tar.xz -C /opt/
+sudo ln -sf /opt/Telegram/Telegram /usr/bin/Telegram
+echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/Telegram/Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop
+sudo chmod +x /usr/share/applications/telegram.desktop
+cd ~
+
 ##Instalando asdf-vm##
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.7
 echo -e '\n. $HOME/.asdf/asdf.sh' >> ~/.bashrc
@@ -55,7 +65,6 @@ sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev lib
 ## Instalando pacotes Snap ##
 sudo snap install spotify
 sudo snap install photogimp
-sudo snap install telegram-desktop
 sudo snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
