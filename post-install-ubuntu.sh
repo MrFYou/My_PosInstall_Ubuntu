@@ -17,7 +17,7 @@ sudo rm /var/cache/apt/archives/lock
 sudo dpkg --add-architecture i386 ##Minecraft-bedrock##
 
 ##Removendo pacotes pre-instalados##
-sudo apt remove firefox gnome-shell gedit nautilus -y
+sudo apt remove firefox gnome-shell gdm3 gedit nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
 
 ##Adicionando repositorios e PPAs##
 wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
