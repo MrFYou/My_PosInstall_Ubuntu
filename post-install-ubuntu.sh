@@ -17,13 +17,13 @@ sudo rm /var/cache/apt/archives/lock
 sudo dpkg --add-architecture i386 ##Minecraft-bedrock##
 
 ##Removendo pacotes pre-instalados##
-sudo apt remove firefox -y
+sudo apt remove firefox gnome-shell gedit nautilus -y
 
 ##Adicionando repositorios e PPAs##
 wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
 sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
 sudo add-apt-repository ppa:embrosyn/cinnamon -y ##Cinnamon##
-sudo add-apt-repository ppa:embrosyn/xapps ##xed##
+sudo add-apt-repository ppa:embrosyn/xapps -y ##xapps##
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -82,8 +82,9 @@ sudo snap install code --classic ##Visual-Studio-Code##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
 sudo flatpak install https://flathub.org/repo/appstream/com.github.maoschanz.drawing.flatpakref -y ##drawing##
 
-##Limpeza a atualização##
+##Limpar, atualizar e reiniciar##
 sudo rm -r $DIRETORIO_DOWNLOADS
 sudo apt update
 sudo apt autoremove -y
 sudo apt upgrade -y
+sudo reboot
