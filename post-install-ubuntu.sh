@@ -35,10 +35,10 @@ wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
 sudo apt install git -y
-sudo apt install vim -y
+sudo apt install xed -y
 sudo apt install winff -y
 sudo apt install transmission -y
-sudo apt install xed -y
+sudo apt install nano -y
 sudo apt install redshift redshift-gtk -y
 sudo apt install lightdm-settings slick-greeter -y
 sudo apt install synaptic -y
