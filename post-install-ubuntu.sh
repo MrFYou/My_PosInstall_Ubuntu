@@ -45,7 +45,7 @@ sudo apt install synaptic -y
 sudo apt install usb-creator-gtk -y ##Criador de discos de inicalização##
 sudo apt install msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y ##Minecraft-bedrock##
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
-sudo apt install cinnamon -y
+sudo apt install cinnamon nemo-share samba nemo-audio-tab nemo-emblems nemo-fileroller -y
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
