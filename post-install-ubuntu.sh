@@ -22,7 +22,6 @@ sudo apt remove firefox gnome-shell gdm3 gedit nautilus gnome-startup-applicatio
 ##Adicionando repositorios e PPAs##
 wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
 sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
-sudo add-apt-repository ppa:embrosyn/cinnamon -y ##Cinnamon##
 sudo add-apt-repository ppa:embrosyn/xapps -y ##xapps##
 
 ## Download de programas externos ##
@@ -35,17 +34,18 @@ wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
 sudo apt install git -y
-sudo apt install xed -y
+sudo apt install xed -y ##xapps##
 sudo apt install winff -y
 sudo apt install transmission -y
 sudo apt install nano -y
 sudo apt install redshift redshift-gtk -y
-sudo apt install lightdm-settings slick-greeter -y
+sudo apt install lightdm lightdm-settings slick-greeter -y
 sudo apt install synaptic -y
 sudo apt install usb-creator-gtk -y ##Criador de discos de inicalização##
 sudo apt install msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y ##Minecraft-bedrock##
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
-sudo apt install cinnamon nemo-share samba nemo-audio-tab nemo-emblems nemo-fileroller -y
+sudo apt install cinnamon -y
+sudo apt install samba -y
 
 ##Instalando Temas e icones do Linux Mint##
 sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
