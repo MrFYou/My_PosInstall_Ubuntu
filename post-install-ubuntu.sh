@@ -6,6 +6,7 @@ URL_VIRTUAL_BOX="https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
+URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 ## --------------------------------------------------------------------------------------------------------------------##
 
@@ -29,6 +30,7 @@ wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_STEAM"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_DISCORD"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
