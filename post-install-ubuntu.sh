@@ -17,12 +17,11 @@ sudo rm /var/cache/apt/archives/lock
 sudo dpkg --add-architecture i386 ##Minecraft-bedrock##
 
 ##Removendo pacotes pre-instalados##
-sudo apt remove firefox gnome-shell gdm3 gedit nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
+sudo apt remove firefox gnome-shell gdm3 nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
 
 ##Adicionando repositorios e PPAs##
 wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
 sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
-sudo add-apt-repository ppa:embrosyn/xapps -y ##xapps##
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -34,7 +33,7 @@ wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
 sudo apt install git -y
-sudo apt install xed -y ##xapps##
+sudo apt install gedit -y
 sudo apt install winff -y
 sudo apt install transmission -y
 sudo apt install nano -y
