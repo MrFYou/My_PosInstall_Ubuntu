@@ -7,6 +7,11 @@ URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
 URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb"
+URL_MINECRAFT_BEDROCK1="https://github.com/ChristopherHX/linux-packaging-scripts/releases/download/amd64.ubuntu.20.04/mcpelauncher-client-45f9d98-Linux.deb"
+URL_MINECRAFT_BEDROCK2="https://github.com/ChristopherHX/linux-packaging-scripts/releases/download/amd64.ubuntu.20.04/mcpelauncher-core-45f9d98-Linux.deb"
+URL_MINECRAFT_BEDROCK3="https://github.com/ChristopherHX/linux-packaging-scripts/releases/download/amd64.ubuntu.20.04/mcpelauncher-ui-qt-8b7543e-Linux.deb"
+URL_MINECRAFT_BEDROCK4="https://github.com/ChristopherHX/linux-packaging-scripts/releases/download/amd64.ubuntu.20.04/msa-daemon-029fde6-Linux.deb"
+URL_MINECRAFT_BEDROCK5="https://github.com/ChristopherHX/linux-packaging-scripts/releases/download/amd64.ubuntu.20.04/msa-ui-qt-029fde6-Linux.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 ## --------------------------------------------------------------------------------------------------------------------##
 
@@ -15,14 +20,13 @@ sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
 ## Adicionando arquitetura de 32 bits ##
-sudo dpkg --add-architecture i386 ##Minecraft-bedrock##
+sudo dpkg --add-architecture i386 ##Dependencia Minecraft-bedrock##
 
 ##Removendo pacotes pre-instalados##
 sudo apt remove firefox gnome-shell gdm3 nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
 
 ##Adicionando repositorios e PPAs##
-wget -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add - ##Minecraft-bedrock##
-sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ bionic main' ##Minecraft-bedrock##
+
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -31,6 +35,11 @@ wget -c "$URL_STEAM"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_DISCORD"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINECRAFT_BEDROCK1"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINECRAFT_BEDROCK2"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINECRAFT_BEDROCK3"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINECRAFT_BEDROCK4"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINECRAFT_BEDROCK5"       -P "$DIRETORIO_DOWNLOADS"
 
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
@@ -43,7 +52,7 @@ sudo apt install redshift redshift-gtk -y
 sudo apt install lightdm lightdm-settings slick-greeter -y
 sudo apt install synaptic -y
 sudo apt install usb-creator-gtk -y ##Criador de discos de inicalização##
-sudo apt install msa-daemon msa-ui-qt mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa:i386 libegl1-mesa-dev:i386 -y ##Minecraft-bedrock##
+sudo apt install libc6-i386 libegl1-mesa:i386 zlib1g:i386 libstdc++6:i386 libgl1-mesa-dri:i386 libasound2:i386 pulseaudio libegl1-mesa-dev:i386 -y ##Dependencias Minecraft-bedrock##
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
 sudo apt install cinnamon -y
 sudo apt install samba -y
