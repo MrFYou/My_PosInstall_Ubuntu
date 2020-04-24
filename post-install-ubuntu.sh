@@ -26,19 +26,19 @@ sudo apt remove firefox -y
 aux=1
 until [ $aux -eq 0 ]
 do
-    echo -n "Qual interface instalar? 0 - Ubuntu, 1 - Gnome, 2 - Cinnamon: "
+    echo -n "Qual interface instalar? Ubuntu, Gnome ou Cinnamon: "
     read resposta
     case "$resposta" in
-     0|"Ubuntu"|"ubuntu"|"")
+     "Ubuntu"|"ubuntu")
             aux=$[ $aux - 1]
      ;;
-      1|"Gnome"|"gnome")
+      "Gnome"|"gnome")
             aux=$[ $aux - 1]
             sudo apt remove ubuntu-session -y
             sudo apt install gnome-session gnome-shell gnome-terminal gnome-software gdm3 gnome-tweaks gnome-shell-extensions -y
             sudo snap remove snap-store
      ;;
-     2|"Cinnamon"|"cinnamon")
+     "Cinnamon"|"cinnamon")
             aux=$[ $aux - 1]
             sudo apt remove gnome-shell gdm3 nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
             sudo apt install lightdm lightdm-settings slick-greeter redshift redshift-gtk samba cinnamon -y
@@ -116,11 +116,11 @@ do
     echo -n "Dejesa reiniciar agora? (S/N): "
     read resposta
     case "$resposta" in
-     "S"|"s"|"Y"|"y"|"sim"|"Sim"|"Yes"|"yes"|"")
+     "S"|"s"|"Y"|"y"|"sim"|"Sim"|"Yes"|"yes")
             aux=$[ $aux - 1]
             sudo reboot
      ;;
-     2|"N"|"n"|"Nao"|"nao"|"no"|"No")
+     "N"|"n"|"Nao"|"nao"|"no"|"No")
             aux=$[ $aux - 1]
      ;;
       *)
