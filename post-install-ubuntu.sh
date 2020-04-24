@@ -8,6 +8,7 @@ URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
 URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
+mkdir "$DIRETORIO_DOWNLOADS"
 ## --------------------------------------------------------------------------------------------------------------------##
 
 ## Removendo travas eventuais do apt ##
@@ -55,7 +56,6 @@ sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/icons /usr/share/
 sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 
 ## Download de programas externos ##
-mkdir "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_STEAM"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
