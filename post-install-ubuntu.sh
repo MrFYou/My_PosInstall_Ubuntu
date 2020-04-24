@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 ##--------------------------------------------------- VARIÁVEIS -------------------------------------------------##
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
@@ -15,13 +15,44 @@ sudo rm /var/lib/dpkg/lock-frontend
 sudo rm /var/cache/apt/archives/lock
 
 ## Adicionando arquitetura de 32 bits ##
-sudo dpkg --add-architecture i386
-
-##Removendo pacotes pre-instalados##
-sudo apt remove firefox gnome-shell gdm3 nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
 
 ##Adicionando repositorios e PPAs##
 
+##Removendo pacotes pre-instalados##
+sudo apt remove firefox -y
+
+##Escolhendo interface##
+aux=1
+until [ $aux -eq 0 ]
+do
+    echo -n "Qual interface instalar? 0 - Ubuntu, 1 - Gnome, 2 - Cinnamon: "
+    read resposta
+    case "$resposta" in
+     0|"Ubuntu"|"ubuntu"|"")
+            aux=$[ $aux - 1]
+     ;;
+      1|"Gnome"|"gnome")
+            aux=$[ $aux - 1]
+            sudo apt remove ubuntu-session -y
+            sudo apt install gnome-session gnome-shell gnome-terminal gnome-software gdm3 gnome-tweaks gnome-shell-extensions -y
+            sudo snap remove snap-store
+     ;;
+     2|"Cinnamon"|"cinnamon")
+            aux=$[ $aux - 1]
+            sudo apt remove gnome-shell gdm3 nautilus gnome-startup-applications gnome-control-center gnome-font-viewer yelp im-config -y
+            sudo apt install lightdm lightdm-settings slick-greeter redshift redshift-gtk samba cinnamon -y
+     ;;
+      *)
+            echo "Opção inválida"
+     ;;
+    esac
+done
+
+##Instalando Temas e icones do Linux Mint##
+sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
+sudo unzip $DIRETORIO_DOWNLOADS/master.zip -d $DIRETORIO_DOWNLOADS
+sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/icons /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 
 ## Download de programas externos ##
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -35,22 +66,11 @@ wget -c "$URL_DISCORD"       -P "$DIRETORIO_DOWNLOADS"
 sudo apt install flatpak -y
 sudo apt install git -y
 sudo apt install gedit -y
-sudo apt install winff -y
 sudo apt install transmission -y
 sudo apt install nano -y
-sudo apt install redshift redshift-gtk -y
-sudo apt install lightdm lightdm-settings slick-greeter -y
 sudo apt install synaptic -y
 sudo apt install usb-creator-gtk -y ##Criador de discos de inicalização##
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
-sudo apt install cinnamon -y
-sudo apt install samba -y
-
-##Instalando Temas e icones do Linux Mint##
-sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"
-sudo unzip $DIRETORIO_DOWNLOADS/master.zip -d $DIRETORIO_DOWNLOADS
-sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/icons /usr/share/
-sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 
 ## Instalando pacotes .deb baixados##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
@@ -83,9 +103,28 @@ sudo snap install code --classic ##Visual-Studio-Code##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
 sudo flatpak install https://flathub.org/repo/appstream/com.github.maoschanz.drawing.flatpakref -y ##drawing##
 
-##Limpar, atualizar e reiniciar##
+##Limpar e atualizar##
 sudo rm -r $DIRETORIO_DOWNLOADS
 sudo apt update
 sudo apt autoremove -y
 sudo apt upgrade -y
-sudo reboot
+
+##reiniciar##
+aux=1
+until [ $aux -eq 0 ]
+do
+    echo -n "Dejesa reiniciar agora? (S/N): "
+    read resposta
+    case "$resposta" in
+     "S"|"s"|"Y"|"y"|"sim"|"Sim"|"Yes"|"yes"|"")
+            aux=$[ $aux - 1]
+            sudo reboot
+     ;;
+     2|"N"|"n"|"Nao"|"nao"|"no"|"No")
+            aux=$[ $aux - 1]
+     ;;
+      *)
+            echo "Opção inválida"
+     ;;
+    esac
+done
