@@ -82,7 +82,7 @@ cd "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_TELEGRAM" -O telegram.tar.xz
 sudo tar Jxf $DIRETORIO_DOWNLOADS/telegram.tar.xz -C /opt/
 sudo ln -sf /opt/Telegram/Telegram /usr/bin/Telegram
-echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/Telegram/Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop
+echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/Telegram/Telegram\n Name=Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop
 sudo chmod +x /usr/share/applications/telegram.desktop
 cd ~
 
