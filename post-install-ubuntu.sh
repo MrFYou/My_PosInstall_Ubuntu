@@ -20,7 +20,6 @@ sudo rm /var/cache/apt/archives/lock
 ##Adicionando repositorios e PPAs##
 
 ##Removendo pacotes pre-instalados##
-sudo apt remove firefox -y
 
 ##Escolhendo interface##
 aux=1
