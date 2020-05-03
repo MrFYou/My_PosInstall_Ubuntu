@@ -2,11 +2,11 @@
 ##--------------------------------------------------- VARIÁVEIS -------------------------------------------------##
 URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
-URL_VIRTUAL_BOX="https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~bionic_amd64.deb"
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
 URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.10/discord-0.0.10.deb"
+URL_STREMIO="https://dl.strem.io/linux/v4.4.106/stremio_4.4.106-1_amd64.deb"
 DIRETORIO_DOWNLOADS="$HOME/Downloads/programas"
 mkdir "$DIRETORIO_DOWNLOADS"
 ## --------------------------------------------------------------------------------------------------------------------##
@@ -29,7 +29,9 @@ do
     read resposta
     case "$resposta" in
      "Ubuntu"|"ubuntu")
-            aux=$[ $aux - 1]
+              aux=$[ $aux - 1]
+              sudo apt install gnome-software gnome-tweaks -y
+              sudo snap remove snap-store
      ;;
       "Gnome"|"gnome")
             aux=$[ $aux - 1]
@@ -57,9 +59,10 @@ sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/
 ## Download de programas externos ##
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_STEAM"       -P "$DIRETORIO_DOWNLOADS"
-wget -c "$URL_VIRTUAL_BOX"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_MINECRAFT"       -P "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_DISCORD"       -P "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_STREMIO"       -P "$DIRETORIO_DOWNLOADS"
+
 
 ##Instalando pacotes apt##
 sudo apt install flatpak -y
@@ -68,7 +71,7 @@ sudo apt install gedit -y
 sudo apt install transmission -y
 sudo apt install nano -y
 sudo apt install synaptic -y
-sudo apt install usb-creator-gtk -y ##Criador de discos de inicalização##
+sudo apt install virtualbox -y
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
 
 ## Instalando pacotes .deb baixados##
@@ -82,8 +85,8 @@ cd "$DIRETORIO_DOWNLOADS"
 wget -c "$URL_TELEGRAM" -O telegram.tar.xz
 sudo tar Jxf $DIRETORIO_DOWNLOADS/telegram.tar.xz -C /opt/
 sudo ln -sf /opt/Telegram/Telegram /usr/bin/Telegram
-echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/Telegram/Telegram\n Name=Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop
-sudo chmod +x /usr/share/applications/telegram.desktop
+##echo -e '[Desktop Entry]\n Version=1.0\n Exec=/opt/Telegram/Telegram\n Name=Telegram\n Icon=Telegram\n Type=Application\n Categories=Application;Network;' | sudo tee /usr/share/applications/telegram.desktop##
+##sudo chmod +x /usr/share/applications/telegram.desktop##
 cd ~
 
 ##Instalando asdf-vm##
@@ -95,12 +98,11 @@ sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev lib
 ## Instalando pacotes Snap ##
 sudo snap install spotify
 sudo snap install photogimp
-sudo snap install vlc
 sudo snap install code --classic ##Visual-Studio-Code##
 
 ## Instalando pacotes Flatpak ##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
-sudo flatpak install https://flathub.org/repo/appstream/com.github.maoschanz.drawing.flatpakref -y ##drawing##
+sudo flatpak install flathub org.videolan.VLC ##VLC##
 
 ##Limpar e atualizar##
 sudo rm -r $DIRETORIO_DOWNLOADS
