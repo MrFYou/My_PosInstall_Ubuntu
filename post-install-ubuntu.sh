@@ -99,6 +99,7 @@ sudo apt install automake autoconf libreadline-dev libncurses-dev libssl-dev lib
 sudo snap install spotify
 sudo snap install photogimp
 sudo snap install code --classic ##Visual-Studio-Code##
+sudo snap install authy --beta
 
 ## Instalando pacotes Flatpak ##
 sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
