@@ -18,6 +18,7 @@ sudo rm /var/cache/apt/archives/lock
 ## Adicionando arquitetura de 32 bits ##
 
 ##Adicionando repositorios e PPAs##
+sudo add-apt-repository ppa:obsproject/obs-studio -y
 
 ##Removendo pacotes pre-instalados##
 
@@ -65,6 +66,7 @@ wget -c "$URL_STREMIO"       -P "$DIRETORIO_DOWNLOADS"
 
 
 ##Instalando pacotes apt##
+sudo apt update
 sudo apt install flatpak -y
 sudo apt install git -y
 sudo apt install gedit -y
@@ -72,6 +74,7 @@ sudo apt install transmission -y
 sudo apt install nano -y
 sudo apt install synaptic -y
 sudo apt install virtualbox -y
+sudo apt install obs-studio ffmpeg -y
 sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .rar##
 
 ## Instalando pacotes .deb baixados##
