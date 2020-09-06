@@ -75,7 +75,7 @@ wget -c "$URL_VISUALSTUDIOCODE"       -P "$DIRETORIO_DOWNLOADS"
 ##OBS Studio##
 sudo add-apt-repository ppa:obsproject/obs-studio -y
 sudo apt update
-sudo apt install obs-studio ffmpeg -
+sudo apt install obs-studio ffmpeg -y
 
 
 ##WINE##
@@ -87,7 +87,6 @@ sudo apt install --install-recommends winehq-stable -y
 
 
 ##Instalando pacotes apt##
-sudo apt update
 sudo apt install flatpak -y
 sudo apt install git -y
 sudo apt install gedit -y
@@ -99,9 +98,7 @@ sudo apt install p7zip p7zip-full p7zip-rar -y ##Suporte para arquivos .7z e .ra
 
 ## Instalando pacotes .deb baixados##
 sudo dpkg -i $DIRETORIO_DOWNLOADS/*.deb
-
-##Consertando dependencias faltando/quebradas##
-sudo apt --fix-broken install -y
+sudo apt --fix-broken install -y ##Consertando dependencias faltando/quebradas##
 
 ##Telegram##
 cd "$DIRETORIO_DOWNLOADS"
