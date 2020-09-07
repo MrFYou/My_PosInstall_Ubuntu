@@ -27,7 +27,6 @@ sudo dpkg --add-architecture i386
 ##Removendo pacotes pre-instalados##
 
 
-
 ##Escolhendo interface##
 aux=1
 until [ $aux -eq 0 ]
@@ -37,13 +36,12 @@ do
     case "$resposta" in
      "Ubuntu"|"ubuntu")
               aux=$[ $aux - 1]
-              sudo apt install gnome-software gnome-tweaks gnome-shell-extensions -y
-              sudo snap remove snap-store
+              sudo apt install menulibre gnome-tweaks gnome-system-tools gnome-shell-extensions -y
      ;;
       "Gnome"|"gnome")
             aux=$[ $aux - 1]
             sudo apt remove ubuntu-session -y
-            sudo apt install gnome-session gnome-shell gnome-terminal gnome-software gdm3 gnome-tweaks gnome-shell-extensions -y
+            sudo apt install gnome-session menulibre gnome-shell gnome-terminal gnome-software-plugin-flatpak gnome-system-tools gnome-software gdm3 gnome-tweaks gnome-shell-extensions -y
             sudo snap remove snap-store
      ;;
      "Cinnamon"|"cinnamon")
@@ -121,8 +119,10 @@ sudo snap install photogimp
 sudo snap install authy --beta
 
 ##Instalando pacotes Flatpak ##
-sudo flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref -y ##GIMP##
+sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo flatpak install flathub org.gimp.GIMP -y ##GIMP##
 sudo flatpak install flathub org.videolan.VLC -y ##VLC##
+sudo flatpak install flathub org.tlauncher.TLauncher -y ##Tlauncher##
 
 ##Limpar e atualizar##
 sudo rm -r $DIRETORIO_DOWNLOADS
