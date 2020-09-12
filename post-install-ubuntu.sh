@@ -5,7 +5,9 @@ URL_GOOGLE_CHROME="https://dl.google.com/linux/direct/google-chrome-stable_curre
 URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
-URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
+URL_MINT_THEME="https://nccrzw.bn.files.1drv.com/y4munJH7VUbkpc58Jt1b2krvC0LsHNar602vK4DFmRdg85RaqHvEdQezeeIoR_4SliWgEhD_LNhcECiZxroMr-Ddg4HTbFq51zDwPMKFrNQpgqY_T_l5PcmvuCz8BWlpoHir3-hG4dKVMhyT2HSfg3R9AEgZ36edeFkCTHztLB5jrBQ0As6so_58Brf7PAt0rK31ak7p8gPfhoL9bTSmkv_0Q"
+URL_YARU_COLORS="https://github.com/Jannomag/Yaru-Colors/releases/download/20.04.5/Complete-Yaru-Colors-20.04.5.tar.xz"
+URL_MACOS_THEME="https://cvel2q.bn.files.1drv.com/y4mcQBCjVM_v8hkHm1-Upl6rgjhoFRWOdSvUcQqo9QMqQNSI-qhqpOr_iOl6k92rJxTO5KZ6fISeQbmuM8JuS7LEmRc3wU3WoVJAyDYdrqh82tqW5oQmkxM_1cZKT2ol9Q5DvY8VeBWbxhrc3iw4ve5GcRj2YbOstC_rnmnG5wZvygow3p2-SoVoV4sOAt0KLMBEuKqrf38zBkd8YQ92pQ5PQ"
 URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb"
 URL_STREMIO="https://dl.strem.io/shell-linux/v4.4.116/stremio_4.4.116-1_amd64.deb"
 URL_VIRUTALBOX="https://download.virtualbox.org/virtualbox/6.1.14/virtualbox-6.1_6.1.14-140239~Ubuntu~eoan_amd64.deb"
@@ -55,11 +57,32 @@ do
     esac
 done
 
-##Instalando Temas e icones do Linux Mint##
-##sudo wget -c "$URL_TEMAS_MINT"       -P "$DIRETORIO_DOWNLOADS"##
-##sudo unzip $DIRETORIO_DOWNLOADS/master.zip -d $DIRETORIO_DOWNLOADS##
-##sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/icons /usr/share/##
-##sudo cp -r $DIRETORIO_DOWNLOADS/Themes_of_Linux_Mint-master/themes /usr/share/##
+
+##Instalação de temas##
+##Yaru Colors Themes##
+sudo wget -c "$URL_YARU_COLORS"       -P "$DIRETORIO_DOWNLOADS"
+sudo tar -xvf $DIRETORIO_DOWNLOADS/Complete-Yaru-Colors-20.04.5.tar.xz -d $DIRETORIO_DOWNLOADS
+sudo cp -r $DIRETORIO_DOWNLOADS/Complete-Yaru-Colors-20.04.5/icons /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Complete-Yaru-Colors-20.04.5/themes /usr/share/
+sudo mkdir /usr/share/backgrounds/YaruColors/
+sudo cp -r $DIRETORIO_DOWNLOADS/Complete-Yaru-Colors-20.04.5/Wallpapers/* /usr/share/backgrounds/YaruColors/
+##Linux Mint Themes##
+cd "$DIRETORIO_DOWNLOADS"
+wget -c "$URL_MINT_THEME" -O Mint-Themes.zip
+sudo unzip $DIRETORIO_DOWNLOADS/Mint-Themes.zip -d $DIRETORIO_DOWNLOADS
+sudo cp -r $DIRETORIO_DOWNLOADS/Mint-Themes/icons /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Mint-Themes/themes /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Mint-Themes/backgrounds /usr/share/
+##MacOS GNOME Theme##
+wget -c "$URL_MACOS_THEME" -O Big-Sur-GNOME-Theme.zip
+sudo unzip $DIRETORIO_DOWNLOADS/Big-Sur-GNOME-Theme.zip -d $DIRETORIO_DOWNLOADS
+sudo cp -r $DIRETORIO_DOWNLOADS/Big-Sur-GNOME-Theme/icons /usr/share/
+sudo cp -r $DIRETORIO_DOWNLOADS/Big-Sur-GNOME-Theme/theme/* /usr/share/themes/
+sudo mkdir /usr/share/backgrounds/MacOS/
+sudo cp -r $DIRETORIO_DOWNLOADS/Big-Sur-GNOME-Theme/wallpaper/* /usr/share/backgrounds/MacOS/
+cd ~
+
+
 
 ## Download de programas externos ##
 wget -c "$URL_GOOGLE_CHROME"       -P "$DIRETORIO_DOWNLOADS"
