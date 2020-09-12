@@ -6,10 +6,10 @@ URL_STEAM="https://steamcdn-a.akamaihd.net/client/installer/steam.deb"
 URL_MINECRAFT="https://launcher.mojang.com/download/Minecraft.deb"
 URL_TELEGRAM="https://telegram.org/dl/desktop/linux"
 URL_TEMAS_MINT="https://github.com/MrFYou/Themes_of_Linux_Mint/archive/master.zip"
-URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.11/discord-0.0.11.deb"
+URL_DISCORD="https://dl.discordapp.net/apps/linux/0.0.12/discord-0.0.12.deb"
 URL_STREMIO="https://dl.strem.io/shell-linux/v4.4.116/stremio_4.4.116-1_amd64.deb"
 URL_VIRUTALBOX="https://download.virtualbox.org/virtualbox/6.1.14/virtualbox-6.1_6.1.14-140239~Ubuntu~eoan_amd64.deb"
-URL_VISUALSTUDIOCODE="https://az764295.vo.msecnd.net/stable/a0479759d6e9ea56afa657e454193f72aef85bd0/code_1.48.2-1598353430_amd64.deb"
+URL_VISUALSTUDIOCODE="https://az764295.vo.msecnd.net/stable/e790b931385d72cf5669fcefc51cdf65990efa5d/code_1.49.0-1599744551_amd64.deb"
 ## --------------------------------------------------------------------------------------------------------------------##
 
 mkdir "$DIRETORIO_DOWNLOADS"
@@ -123,6 +123,7 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 sudo flatpak install flathub org.gimp.GIMP -y ##GIMP##
 sudo flatpak install flathub org.videolan.VLC -y ##VLC##
 sudo flatpak install flathub org.tlauncher.TLauncher -y ##Tlauncher##
+sudo flatpak install flathub org.filezillaproject.Filezilla -y
 
 ##Limpar e atualizar##
 sudo rm -r $DIRETORIO_DOWNLOADS
